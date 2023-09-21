@@ -5,7 +5,8 @@
   <script>
     function comprar() {
       let nome = camponome.value
-      alert("bem vindo " + nome)
+      let email = campoemail.value
+      alert("bem vindo " + email)
     }
   </script>
 
@@ -14,6 +15,7 @@
 <body>
 
   <input placeholder="Nome" id="camponome">
+  <input placeholder="e-mail" id="campoemail">
   <button onclick="comprar()"> Ok </button>
 </body>
 
