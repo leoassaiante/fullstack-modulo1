@@ -4,7 +4,8 @@
 <head>
   <script>
     function comprar() {
-      alert("clicou no botao")
+      let nome = camponome.value
+      alert("bem vindo " + nome)
     }
   </script>
 
@@ -12,7 +13,7 @@
 
 <body>
 
-  <input placeholder="Nome">
+  <input placeholder="Nome" id="camponome">
   <button onclick="comprar()"> Ok </button>
 </body>
 
