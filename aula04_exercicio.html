@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function IMC() {
+
+            let n1 = peso.value
+            let n2 = altura.value
+
+            let n3 = n2 * n2
+
+            let IMC = n1 / n3
+            
+
+            alert(IMC)
+
+        }
+                 
+
+    </script>
+</head>
+
+<body>
+    
+   <input placeholder="Peso" id="peso" type="number">
+   <input placeholder="Altura" id="altura" type="number">
+   <button onclick="IMC()"> Calcular</button> 
+   
+
+</body>
+</html>
