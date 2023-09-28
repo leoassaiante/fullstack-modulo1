@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+      function CalcularMedia() {
+
+        let A = parseFloat(n1.value)
+        let B = parseFloat(n2.value)
+        let C = parseFloat(n3.value)
+
+
+        let Media = (A + B + C)/3
+
+       // alert ("A média é " + Media)
+        let mensagem =  "A média é " + Media
+
+        saida.innerText=mensagem
+        
+      }
+
+
+
+
+
+    </script>
+</head>
+
+
+
+<body>
+
+    <input placeholder="Número 1" id="n1" type="number">
+    <input placeholder="Número 2" id="n2" type="number">
+    <input placeholder="Número 3" id="n3" type="number">
+    <div id="saida"></div>
+    
+    <button onclick="CalcularMedia()"> Média</button>
+    
+</body>
+</html>
