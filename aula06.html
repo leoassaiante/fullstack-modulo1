@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function media() {
+
+      let A = parseFloat(n1.value)
+      let B = parseFloat(n2.value)
+      let C = parseFloat(n3.value)
+
+      let media = (A + B + C) / 3
+
+      if (media >= 7) {
+
+        alert("A média é " + media + " Aluno(a) aprovado")
+      }
+
+      else {
+
+        alert("A média é " + media + " Aluno(a) reprovado")
+      }
+
+
+    }
+
+  </script>
+
+
+
+</head>
+
+<body>
+  <input placeholder="Usuario 01" id="n1" type="number">
+  <input placeholder="Usuario 02" id="n2" type="number">
+  <input placeholder="Usuario 03" id="n3" type="number">
+
+
+  <button onclick="media ()"> Media</button>
+
+</body>
+
+</html>
