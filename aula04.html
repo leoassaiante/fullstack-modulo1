@@ -1,68 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function somar() {
+        let numero1 = parseFloat(n1.value);
+        let numero2 = parseFloat(n2.value);
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>
+        let s = numero1 + numero2;
 
-    function somar() {
+        alert(s);
+      }
 
-      let numero1 = parseFloat(n1.value)
-      let numero2 = parseFloat(n2.value)
+      function subtrair() {
+        let numero1 = n1.value;
+        let numero2 = n2.value;
 
-      let s = numero1 + numero2
+        let sub = numero1 - numero2;
 
-      alert(s)
+        alert(sub);
+      }
 
-    }
+      function multiplicar() {
+        let numero1 = n1.value;
+        let numero2 = n2.value;
 
-    function subtrair() {
+        let m = numero1 * numero2;
+        alert(m);
+      }
+      function dividir() {
+        let numero1 = n1.value;
+        let numero2 = n2.value;
 
-      let numero1 = n1.value
-      let numero2 = n2.value
+        let d = numero1 / numero2;
 
-      let sub = numero1 - numero2
+        alert(d);
+      }
+    </script>
+  </head>
 
-      alert(sub)
-
-    }
-
-    function multiplicar() {
-
-      let numero1 = n1.value
-      let numero2 = n2.value
-
-      let m = numero1 * numero2
-      alert(m)
-
-    }
-    function dividir() {
-
-      let numero1 = n1.value
-      let numero2 = n2.value
-
-      let d = numero1 / numero2
-
-      alert(d)
-
-    }
-
-  </script>
-
-
-</head>
-
-<body>
-
-  <input placeholder="Número 1" id="n1" type="number">
-  <input placeholder="Número 2" id="n2" type="number">
-  <button onclick="subtrair()"> Subtrair</button>
-  <button onclick="somar()"> Somar</button>
-  <button onclick="multiplicar ()"> multiplicar </button>
-  <button onclick="dividir()"> Dividir</button>
-
-</body>
-
+  <body>
+    <input placeholder="Número 1" id="n1" type="number" />
+    <input placeholder="Número 2" id="n2" type="number" />
+    <button onclick="subtrair()">Subtrair</button>
+    <button onclick="somar()">Somar</button>
+    <button onclick="multiplicar ()">multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+  </body>
 </html>

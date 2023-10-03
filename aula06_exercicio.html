@@ -1,49 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function verificarMaior() {
+        let A = parseFloat(n1.value);
+        let B = parseFloat(n2.value);
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>
-    function verificarMaior() {
-
-      let A = parseFloat(n1.value)
-      let B = parseFloat(n2.value)
-
-    //A=10  B=5
-      if (A==B){
-        alert ("iguais")
-      }else {
-        if (A > B) {
-
-         alert("O " + A + " é maior que o " + B)
-
+        //A=10  B=5
+        if (A == B) {
+          alert("iguais");
+        } else {
+          if (A > B) {
+            alert("O " + A + " é maior que o " + B);
+          } else {
+            alert("O " + B + " é maior que o " + A);
+          }
         }
-        else {
-          alert("O " + B + " é maior que o " + A)
-        } 
-
       }
-     
-     
+    </script>
+  </head>
 
-     
-          
-      }
-      
+  <body>
+    <input placeholder="numero 01" id="n1" type="number" />
+    <input placeholder="numero 02" id="n2" type="number" />
 
-  </script>
-
-</head>
-
-<body>
-
-  <input placeholder="numero 01" id="n1" type="number">
-  <input placeholder="numero 02" id="n2" type="number">
-
-  <button onclick="verificarMaior()"> Verificar</button>
-
-</body>
-
+    <button onclick="verificarMaior()">Verificar</button>
+  </body>
 </html>
