@@ -10,10 +10,13 @@
 
       let A = n1.value
       let B = n2.value
+      let C = n1.value == n2.value
 
-      if (A > B) {
+      if (A > B || C) {
 
         alert("O " + A + " é maior que o " + B)
+        alert("O " + A + " é igual " + B)
+
       }
       else {
         alert("O " + B + " é maior que o " + A)
