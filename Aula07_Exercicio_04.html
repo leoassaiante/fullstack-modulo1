@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    
+
     <script>
-        function verificarIdade () {
-            
-            let A = n1.value
+      function verificarIdade() {
+        let A = n1.value;
 
-            if (A<=14) {
-                alert ("Usuário menor de idade é considerado criança")
-            }else if(A>14 && A<=21) {
-                alert("Usuário considerado adolescente")
-            }else if(A>21 && A<=60) {
-                alert("Usuário é considerado adulto")      
-            }else {
-                alert ("Usuário é considerado idoso")
-            }           
-
-            }
-
-
+        if (A <= 14) {
+          alert("Usuário menor de idade é considerado criança");
+        } else if (A > 14 && A <= 21) {
+          alert("Usuário considerado adolescente");
+        } else if (A > 21 && A <= 60) {
+          alert("Usuário é considerado adulto");
+        } else {
+          alert("Usuário é considerado idoso");
+        }
+      }
     </script>
-</head>
-<body>
-
-    <input placeholder= "Usuario 01" id="n1" >
-    <button onclick="verificarIdade ()"> Verificar</button>
-    
-</body>
+  </head>
+  <body>
+    <input placeholder="Usuario 01" id="n1" />
+    <button onclick="verificarIdade ()">Verificar</button>
+  </body>
 </html>

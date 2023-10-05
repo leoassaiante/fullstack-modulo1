@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function VerificarIMC() {
+        let peso = n1.value;
+        let altura = n2.value;
+
+        let imc = peso / (altura * altura);
+
+        if (imc < 18.5) {
+          alert("magreza " + imc);
+        } else if (imc >= 18.5 && imc <= 24.9) {
+          alert("normal " + imc);
+        } else if (imc >= 25 && imc <= 29.9) {
+          alert("Sobrepeso " + imc);
+        } else if (imc >= 30 && imc <= 34.9) {
+          alert("Obesidade Grau I " + imc);
+        } else if (imc >= 35 && imc <= 39.9) {
+          alert("Obesidade Grau II " + imc);
+        } else {
+          alert("Obesidade Grau III " + imc);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="Peso" id="n1" type="number" />
+    <input placeholder="Altura" id="n2" type="number" />
+
+    <button onclick="VerificarIMC()">Verificar IMC</button>
+  </body>
+</html>

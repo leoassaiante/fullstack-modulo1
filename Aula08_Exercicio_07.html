@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Verificar() {
+        let n = n1.value;
+
+        if (n == 0) {
+          alert("igual a zero");
+        } else if (n > 0) {
+          alert("positivo");
+        } else {
+          alert("negativo");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="Número" id="n1" type="number" />
+
+    <button onclick="Verificar()">Resultado</button>
+  </body>
+</html>
