@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function Valor() {
+        let preco = n1.value;
+        let desconto = n2.value;
+
+        let valor = preco - (desconto / 100) * preco;
+        alert("Desconto de " + valor);
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="Valor R$" id="n1" type="number" />
+    <input placeholder="Taxa de desconto" id="n2" type="number" />
+    <button onclick="Valor ()">Calcular</button>
+  </body>
+</html>
