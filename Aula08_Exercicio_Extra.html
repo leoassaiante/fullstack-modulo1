@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function divisao() {
+        let numero1 = n1.value;
+        let numero2 = n2.value;
+
+        if (numero2 == 0) {
+          alert("não pode ser calculado");
+        } else {
+          let div = numero1 / numero2;
+          alert(div);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="Número 1" id="n1" type="number" />
+    <input placeholder="Número 2" id="n2" type="number" />
+
+    <button onclick="divisao()">Dividir</button>
+  </body>
+</html>
