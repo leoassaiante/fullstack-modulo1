@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function exibirImpares() {
+
+      let numero = n1.value
+      let texto = ""
+
+      for (let cont = 1; cont <= numero; cont += 2) {
+        texto = texto + cont + "<br>"
+
+      }
+
+      par.innerHTML = texto
+
+    }
+
+
+    function exibirImpares2() {
+
+      let numero = n1.value
+      let texto = ""
+
+      for (let cont = 1; cont <= numero; cont++) {
+        if (cont % 2 != 0) {
+          texto = texto + cont + "<br>"
+        }
+
+      }
+
+      par.innerHTML = texto
+
+    }
+
+
+
+
+  </script>
+</head>
+
+<body>
+  <input placeholder="numero" id="n1" type="number">
+  <button onclick="exibirImpares2()"> Exibir Impares </button>
+  <div id="par">
+
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function somaProgressiva() {
+
+
+      let n = n1.value
+      let texto = ""
+      let soma = 0
+
+      for (cont = 1; cont <= n; cont++) {
+
+        texto = texto + soma + " + " + cont + " = " + (parseFloat(soma) + parseFloat(cont)) + "<br>"
+        soma = soma + cont
+      }
+
+      saida.innerHTML = texto + "soma total: " + soma
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <input placeholder="numero" id="n1" type="number">
+  <button onclick="somaProgressiva()"> Soma Progressiva </button>
+  <div id="saida">
+
+
+</body>
+
+</html>
