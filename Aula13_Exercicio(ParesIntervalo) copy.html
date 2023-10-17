@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Intervalos() {
+        let n = n1.value; //8
+        let texto = "";
+        //cont =9
+        for (let cont = 1; cont <= n; cont = cont + 1) {
+          if (cont % 2 == 0) {
+            texto = texto + cont + "<br>"; //texto = "2<br>""
+            //texto = "2<br>4<br>"
+            //texto = "2<br>4<br>6<br>"
+            //texto = "2<br>4<br>6<br>8<br>"
+          }
+        }
+
+        par.innerHTML = texto;
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="Número" id="n1" type="number" />
+    <button onclick="Intervalos ()">Intervalos</button>
+    <div id="par">2<br />4<br />6<br />8<br /></div>
+  </body>
+</html>
