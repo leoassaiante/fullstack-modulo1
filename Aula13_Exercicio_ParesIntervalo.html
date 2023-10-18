@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script>
-      function Intervalos() {
-        let inicio = parseFloat(n1.value);
-        let fim = n2.value;
-        let texto = "";
 
-        for (let cont = inicio; cont <= fim; cont += 2) {
-          texto = texto + cont + "<br>";
-        }
-
-        par.innerHTML = texto;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script>
+    function Intervalos() {
+      let inicio = parseFloat(n1.value);
+      let fim = n2.value;
+      let texto = "";
+      if (inicio % 2 != 0) inicio++
+      for (let cont = inicio; cont <= fim; cont += 2) {
+        texto = texto + cont + "<br>";
       }
-    </script>
-  </head>
-  <body>
-    <input placeholder="Número" id="n1" type="number" />
-    <input placeholder="Número" id="n2" type="number" />
-    <button onclick="Intervalos()">Intervalos</button>
-    <div id="par"></div>
-  </body>
+
+      par.innerHTML = texto;
+    }
+  </script>
+</head>
+
+<body>
+  <input placeholder="Número" id="n1" type="number" />
+  <input placeholder="Número" id="n2" type="number" />
+  <button onclick="Intervalos()">Intervalos</button>
+  <div id="par"></div>
+</body>
+
 </html>
