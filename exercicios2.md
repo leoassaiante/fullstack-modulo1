@@ -10,8 +10,15 @@ Faça um programa contendo apenas 1 botao e um campo (input). Mostrar numeros im
 
 Faça um programa que leia um dado digitado na tela. (soma progressiva) 0+1+2+3+4+5 = 15 OK
 
-Quantos (pares) entre um numero digitado no campo // OK
+Quantos (pares) existem um 1 e um numero digitado no campo // OK
 
-Quantos (impares) entre um numero digitado no campo
+Quantos (impares) existem entre 1 e um um numero digitado no campo
 
-Quantos numeros são divisiveis por 3 digitado no campo
+Quantos (pares) existem um intervalo de números N1 e N2 digitado pelo usuário // OK
+
+Quantos (Ímpares) existem um intervalo de números N1 e N2 digitado pelo usuário // OK
+
+Quantos números são divisiveis por 3 entre 1 e um numero N digitado no campo pelo utilizador.
+
+Quantos números são divisiveis por um Número qualquer "n" entre um intervalo de "n1" a "n2" digitado pelo usuário utilizador. [3 inputs]
+![](prints/ex-divisiveis.png)
