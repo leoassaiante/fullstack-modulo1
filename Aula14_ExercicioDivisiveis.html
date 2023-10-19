@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function divisiveis() {
+        let n1 = parseFloat(num1.value);
+        let n2 = parseFloat(num2.value);
+        let divisivel = n3.value;
+        let quantidade = 0;
+        let mensagem = "";
+
+        for (cont = n1; cont <= n2; cont = cont + 1) {
+          if (cont % divisivel == 0) {
+            mensagem = mensagem + cont + " ";
+            quantidade++;
+          }
+        }
+        saida.innerHTML = mensagem + " / Quantidade:" + quantidade;
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="Número 1" id="num1" type="number" />
+    <input placeholder="Número 2" id="num2" type="number" />
+    <input placeholder="Divisivel" id="n3" type="number" />
+    <button onclick="divisiveis()">Ok</button>
+    <div id="saida"></div>
+  </body>
+</html>
