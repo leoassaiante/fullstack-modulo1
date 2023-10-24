@@ -21,4 +21,6 @@ Quantos (Ímpares) existem um intervalo de números N1 e N2 digitado pelo usuár
 Quantos números são divisiveis por 3 entre 1 e um numero N digitado no campo pelo utilizador.
 
 Quantos números são divisiveis por um Número qualquer "n" entre um intervalo de "n1" a "n2" digitado pelo usuário utilizador. [3 inputs]
-![](prints/ex-divisiveis.png)
+![](prints/ex-divisiveis.png) // OK
+
+Write a program that sums all the numbers divisible by 3 below 1000. For example: All the numbers divisible by 3 below 10 are: 3,6,9 and their sum is 18.

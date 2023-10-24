@@ -6,15 +6,19 @@
     <title>Document</title>
     <script>
       function divisible() {
-        let number = parseFloat(n1.value);
-        let Div1 = parseFloat(n2.value);
+        let numero = parseFloat(n1.value);
+        let soma = 0;
 
-        for (cont = number; cont <= div1; cont += 1) {}
+        for (cont = 1; cont <= numero; cont += 1) {
+          if (cont % 3 == 0) {
+            soma = soma + cont;
+          }
+        }
       }
     </script>
   </head>
   <body>
-    <input placeholder="Number 1" id="n1" type="number" />
+    <input placeholder="numero" id="n1" type="number" />
     <input placeholder="Div" id="n2" type="number" />
     <button onclick="divisible()">Ok</button>
     <div id="saida"></div>
