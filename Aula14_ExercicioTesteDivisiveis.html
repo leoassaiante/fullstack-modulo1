@@ -10,16 +10,16 @@
         let soma = 0;
 
         for (cont = 1; cont <= numero; cont += 1) {
-          if (cont % 3 == 0) {
+          if (cont % 3 == 0 || cont % 5 == 0) {
             soma = soma + cont;
           }
         }
+        saida.innerHTML = soma;
       }
     </script>
   </head>
   <body>
-    <input placeholder="numero" id="n1" type="number" />
-    <input placeholder="Div" id="n2" type="number" />
+    <input placeholder="Número Divisível" id="n1" type="number" />
     <button onclick="divisible()">Ok</button>
     <div id="saida"></div>
   </body>
