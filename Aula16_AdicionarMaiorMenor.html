@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let cont = 0;
+      let maior;
+      function adicionar() {
+        let numero = parseFloat(n1.value);
+        if (cont == 0) {
+          maior = numero;
+        } else if (numero > maior) {
+          maior = numero;
+        }
+
+        saida.innerHTML = saida.innerHTML + numero + "<br>";
+        cont = cont + 1; //cont++    //cont+=1
+        contagem.innerHTML = cont;
+      }
+
+      function mostrarMaior() {
+        saidaMaior.innerHTML = maior;
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="Número" id="n1" type="number" />
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="mostrarMaior()">Maior</button>
+    <button onclick="menor()">Menor</button>
+    <br />
+    Sequencia:
+    <div id="saida"></div>
+    Contagem:
+    <div id="contagem"></div>
+    Maior:
+    <div id="saidaMaior"></div>
+
+    Menor:
+    <div id="saidaMenor"></div>
+  </body>
+</html>
