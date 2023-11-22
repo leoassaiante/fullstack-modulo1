@@ -7,18 +7,34 @@
   <title>Document</title>
 
   <script>
-
+    let soma = 0
+    let cont = 0
     function adicionar() {
+      //1)lê o numero
       let numero = parseFloat(n1.value)
 
+      //2)soma (acumula)
+      soma = soma + numero
+
+      //3) contagem
+      cont = cont + 1
+
+      //4) Saída
       sequencia.innerHTML = sequencia.innerHTML + numero + "<br>"
 
     }
 
-    function media() {
+    function exibirMedia() {
 
+      //1) Calcular a media
+      let media = soma / cont
+
+      //2) Exibir a media 
+      saida.innerHTML = media
 
     }
+
+
 
 
 
@@ -31,10 +47,12 @@
 <body>
   <input placeholder="numero" id="n1" type="number">
   <button onclick="adicionar()"> Adicionar</button>
-  <button onclick="media()">media</button>
+  <button onclick="exibirMedia()">media</button>
   </br>
-  sequencia
+  Sequencia:
   <div id="sequencia"></div>
+  Média:
+  <div id="saida"></div>
 </body>
 
 

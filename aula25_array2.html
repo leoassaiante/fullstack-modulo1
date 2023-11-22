@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function exibirArray() {
+      //1) criar um array
+      let notas = []
+
+
+      //2) inserir 5 numeros no array com push
+      notas.push(9)
+      notas.push(7)
+      notas.push(6)
+      notas.push(3)
+      notas.push(1.5)
+      notas.push(7)
+      notas.push(6)
+      notas.push(3)
+      notas.push(1.5)
+
+      //3) exibir os dados do array
+
+      let mensagem = ""
+
+      for (indice = 0; indice < notas.length; indice++) {
+        mensagem += `${notas[indice]} <br>`
+      }
+
+      saida.innerHTML = mensagem
+
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="exibirArray()"> Ok </button>
+  <div id="saida"></div>
+
+</body>
+
+</html>

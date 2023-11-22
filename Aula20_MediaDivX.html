@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    let soma = 0
+    let cont = 0
+    let media = 0
+
+    function adicionarNumeros() {
+
+      let numero = parseFloat(n1.value)
+      let divisivel = parseFloat(n2.value)
+
+
+      if (numero % divisivel == 0) {
+        cont = cont + 1
+        soma = soma + numero
+        media = soma / cont
+
+
+      }
+      sequencia.innerHTML = sequencia.innerHTML + numero + "<br>"
+    }
+    function calcularMedia() {
+
+      mediasaida.innerHTML =
+        `
+      quantidade divisiveis: ${cont} <br>
+      soma do divisivel: ${soma} <br>
+      media do divisivel: ${media}
+      `
+    }
+
+
+
+
+  </script>
+
+</head>
+
+<body>
+  <input placeholder="Numero" id="n1" type="number">
+  <input placeholder="Divisivel" id="n2" type="number">
+  <button onclick="adicionarNumeros()"> Adicionar </button>
+  <button onclick="calcularMedia()"> media </button>
+  </br>
+  Sequencia:
+  <div id="sequencia"></div>
+  </br>
+  media:
+  <div id="mediasaida"></div>
+
+</body>
+
+
+</html>

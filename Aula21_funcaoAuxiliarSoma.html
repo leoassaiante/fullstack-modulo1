@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    function calcSoma() {
+      let numero1 = parseFloat(n1.value)
+      let numero2 = parseFloat(n2.value)
+      let r = somar(numero1, numero2)
+      saida.innerHTML =
+        `
+      soma:${r}
+      `
+
+
+
+
+    }
+
+    function somar(n1, n2) {
+      let r = n1 + n2
+
+      return r
+
+    }
+
+
+
+
+  </script>
+</head>
+
+<body>
+  <input placeholder="Numero 1" id="n1" type="number">
+  <input placeholder="Numero 2" id="n2" type="number">
+  <button onclick="calcSoma()"> Resultado </button>
+
+  <div id="saida"> </div>
+
+</html>

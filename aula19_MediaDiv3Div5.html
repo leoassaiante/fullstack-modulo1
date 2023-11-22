@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //Variaveis divisiveis 3
+    let contDiv3 = 0
+    let somaDiv3 = 0
+    let mediaDiv3 = 0
+
+    //Variaveis divisiveis 5
+    let contDiv5 = 0
+    let somaDiv5 = 0
+    let mediaDiv5 = 0
+    function adicionarNumeros() {
+      let numero = parseFloat(n1.value)
+
+      if (numero % 3 == 0) {
+        contDiv3 = contDiv3 + 1
+        somaDiv3 = somaDiv3 + numero
+        mediaDiv3 = somaDiv3 / contDiv3
+
+
+      }
+      if (numero % 5 == 0) {
+        contDiv5 = contDiv5 + 1
+        somaDiv5 = somaDiv5 + numero
+        mediaDiv5 = somaDiv5 / contDiv5
+
+      }
+
+      sequencia.innerHTML = sequencia.innerHTML + numero + "<br>"
+    }
+
+    function calculoMedia() {
+
+      saida.innerHTML =
+        `
+      Media Divisiveis por 3: ${mediaDiv3} Soma Divisiveis por 3: ${somaDiv3} Quantidade Divisiveis por 3: ${contDiv3} <br>
+      Media Divisiveis por 5: ${mediaDiv5} Soma Divisiveis por 5: ${somaDiv5} Quantidade Divisiveis por 5: ${contDiv5}
+        `
+    }
+
+
+  </script>
+
+
+
+</head>
+
+<body>
+  <input placeholder="Número" id="n1" type="number">
+  <button onclick="adicionarNumeros()"> Adicionar </button>
+  <button onclick="calculoMedia()"> Ok </button>
+  </br>
+  Sequencia:
+  <div id="sequencia"></div>
+  </br>
+  Médias:
+  <div id="saida"></div>
+
+
+
+
+
+</body>
+
+</html>

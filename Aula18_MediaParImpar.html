@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    /**
+     * Soma dos pares e soma dos ímpares
+     * Média dos pares e média dos ímpares
+     * */
+
+    let somaPar = 0
+    let contPar = 0
+    let mediaPar = 0
+
+    let somaImpar = 0
+    let contImpar = 0
+    let mediaImpar = 0
+    function adicionar() {
+      //1)lê o numero
+      let numero = parseFloat(n1.value)
+
+      //2)verifica se é par, se for entao atualiza : contPar, somaPar, mediaPar
+      if (numero % 2 == 0) {
+        contPar = contPar + 1
+        somaPar = somaPar + numero
+        mediaPar = somaPar / contPar
+      } else {
+        //3)senao  for par entao atualiza : contImpar, somaImpar, mediaImpar
+        contImpar = contImpar + 1
+        somaImpar = somaImpar + numero
+        mediaImpar = somaImpar / contImpar
+
+      }
+
+
+      //4) Saída
+      sequencia.innerHTML = sequencia.innerHTML + numero + "<br>"
+
+    }
+
+    function exibirMedia() {
+
+
+      //2) Exibir a media 
+      saida.innerHTML =
+        `
+        Media pares: ${mediaPar}  Soma pares: ${somaPar} 
+       Media Ímpares: ${mediaImpar} Soma impares: ${somaImpar} 
+      `
+
+
+    }
+
+
+
+
+
+
+
+  </script>
+
+</head>
+
+<body>
+  <input placeholder="numero" id="n1" type="number">
+  <button onclick="adicionar()"> Adicionar</button>
+  <button onclick="exibirMedia()">media</button>
+  </br>
+  Sequencia:
+  <div id="sequencia"></div>
+  Média:
+  <div id="saida"></div>
+</body>
+
+
+</html>

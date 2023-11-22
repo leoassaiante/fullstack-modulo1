@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    //1) criar um array
+    const notas = []
+
+
+    function exibirArray() {
+
+      //exibir os dados do array
+
+      let mensagem = ""
+
+      for (indice = 0; indice < notas.length; indice++) {
+        mensagem += `${notas[indice]} <br>`
+      }
+
+      saida.innerHTML = mensagem
+
+    }
+
+    function adicionar() {
+      //leitura do numero
+      let numero = parseFloat(document.getElementById("numero").value)
+      //inserir no array
+      notas.push(numero)
+
+
+
+    }
+  </script>
+</head>
+
+<body>
+
+  <input type="number" id="numero">
+  <button onclick="adicionar()"> Adicionar </button>
+  <button onclick="exibirArray()"> Exibir </button>
+  <div id="saida"></div>
+
+</body>
+
+</html>

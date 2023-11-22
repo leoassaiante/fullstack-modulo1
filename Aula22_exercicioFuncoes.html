@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+
+    c
+
+
+    function ehPrimo(n) {
+
+      for (cont = 2; cont < n; cont++) {
+        if (n % cont == 0) {
+
+          return false
+        }
+      }
+      return true
+    }
+
+    function calcularTudo() {
+
+      let mensagem = ""
+      let n = parseFloat(n1.value)  // leitura   7
+      let rPrimo = ehPrimo(n) //delegou o processamento para outra função (return true or false)
+      let rPar = ehPar(n)
+
+      //saída (mensagem)
+      if (rPrimo == true) {
+        mensagem = "É Primo"
+      } else {
+        mensagem = " Não é primo"
+      }
+
+
+      if (rPar == true) {
+        mensagem += "  É Par"
+      } else {
+        mensagem += "  É impar"
+      }
+
+
+      saida.innerText = mensagem
+    }
+
+  </script>
+</head>
+
+<body>
+  <input placeholder="numero" id="n1" type="number">
+  <button onclick="calcularTudo()"> Calcular Tudo </button>
+  <div id="saida"></div>
+
+</body>
+
+</html>

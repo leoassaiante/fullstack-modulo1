@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function calcularImc() {
+      let peso = parseFloat(n1.value)
+      let altura = parseFloat(n2.value)
+      let r = calcImc(peso, altura)
+
+      saida.innerHTML =
+        `
+      Imc:${r}
+      `
+
+    }
+
+    function calcImc(peso, altura) {
+      let r = (peso / (altura * altura))
+      return r
+
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <input placeholder="Peso" id="n1" type="number">
+  <input placeholder="Altura" id="n2" type="number">
+  <button onclick="calcularImc()"> Calcular </button>
+  <div id="saida"> </div>
+
+</body>
+
+</html>

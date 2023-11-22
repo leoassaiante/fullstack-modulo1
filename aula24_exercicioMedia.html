@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function calcularMedia() {
+      let numero1 = parseFloat(n1.value)
+      let numero2 = parseFloat(n2.value)
+      let numero3 = parseFloat(n3.value)
+
+      let r = media(numero1, numero2, numero3)
+
+      saida.innerHTML +=
+        `
+      A média é: ${r} <br>
+      `
+
+
+
+
+    }
+
+    function media(numero1, numero2, numero3) {
+
+      let resultado = (numero1 + numero2 + numero3) / 3
+
+      return resultado
+    }
+
+
+  </script>
+</head>
+
+<body>
+
+  <input placeholder="Numero 1" id="n1" type="number" />
+  <input placeholder="Numero 2" id="n2" type="number" />
+  <input placeholder="Numero 3" id="n3" type="number" />
+  <button onclick="calcularMedia()"> Calcular </button>
+  <div id="saida"></div>
+
+</body>
+
+</html>
