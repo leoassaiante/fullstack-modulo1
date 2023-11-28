@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aulas</title>
+    <script>
+      const aulas = [];
+
+      function adicionarNovaAula() {
+        //ler os campos da tela
+        let descricao = document.getElementById("descricao").value;
+        let data = document.getElementById("data").value;
+        let horaInicio = document.getElementById("horaInicio").value;
+        let horaFim = document.getElementById("horaFim").value;
+
+        //colocar dentro de um objeto
+
+        let aula = { descricao, data, horaInicio, horaFim };
+        //adicionar no array
+        aulas.push(aula);
+
+        listarAulas();
+      }
+
+      function listarAulas() {
+        let saidaHTML = ` <div class="item">Descrição</div>
+        <div class="item">Data</div>
+        <div class="item">Hora Inicio</div>
+        <div class="item">Hora Fim</div>`;
+
+        //ler todas as aulas do array
+        for (i = 0; i < aulas.length; i++) {
+          let aula = aulas[i];
+
+          saidaHTML += `<div class="item">${aula.descricao}</div>
+            <div class="item">${aula.data}</div>
+            <div class="item">${aula.horaInicio}</div>
+            <div class="item">${aula.horaFim}</div>`;
+        }
+        // monstar um HTML de saida para os itens do array
+        let lista = document.getElementById("lista");
+        lista.innerHTML = saidaHTML;
+      }
+    </script>
+
+    <style>
+      #container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      #lista {
+        background-color: gray;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        column-gap: 10px;
+        row-gap: 10px;
+        align-content: stretch;
+      }
+      .item {
+        border: black solid 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="form">
+        <input placeholder="Descrição" id="descricao" type="text" />
+        <input place holder="Data" id="data" type="date" />
+        <input placeholder="Hora Inicio" id="horaInicio" type="time" />
+        <input placeholder="Hora Fim" id="horaFim" type="time" />
+
+        <button onclick="adicionarNovaAula()">Salvar</button>
+      </div>
+
+      <div id="lista"></div>
+    </div>
+  </body>
+</html>
