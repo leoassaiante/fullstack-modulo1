@@ -10,7 +10,6 @@
     //1) criar um array
     const notas = []
 
-
     function ehPrimo(n) {
 
       for (cont = 2; cont < n; cont++) {
@@ -21,6 +20,42 @@
       }
       return true
     }
+
+    function mediaPrimo() {
+
+      let somaPrimo = somarPrimos()
+      let qtdPrimo = qtdPrimos()
+      let media = somaPrimo / qtdPrimo
+
+      saida.innerHTML = media
+    }
+
+    function somarPrimos() {
+
+      let soma = 0
+
+      for (i = 0; i < notas.length; i++)
+        if (ehPrimo(notas[i])) {
+
+          soma = soma + notas[i]
+        }
+      return soma
+    }
+
+    function qtdPrimos() {
+
+      let primo = 0
+
+      for (i = 0; i < notas.length; i++) {
+        if (ehPrimo(notas[i])) {
+
+          primo = primo + 1
+
+        }
+      }
+      return primo
+    }
+
 
     function ehPar(n) {
 
@@ -47,7 +82,6 @@
 
     }
 
-
     function exibirNotas() {
 
       //invocar a funcao somarNotas() e guardar o retorno numa variável
@@ -73,6 +107,87 @@
       let media = calcMediaNotas()
 
       saida.innerHTML = media
+    }
+    function calcAcimaMedia() {
+
+      let soma = somaAcimaMedia()
+      let quantidade = qtdAcimaMedia()
+      let media = 0
+      if (soma != 0 && quantidade != 0) {
+        media = soma / quantidade
+      }
+      saida.innerHTML = media
+
+
+    }
+
+    function somaAcimaMedia() {
+      let soma = 0
+
+      for (i = 0; i < notas.length; i++) {
+
+        if (notas[i] >= 6) {
+          soma = soma + notas[i]
+
+        }
+
+      }
+
+      return soma
+    }
+
+    function qtdAcimaMedia() {
+
+      let quantidade = 0
+
+      for (i = 0; i < notas.length; i++) {
+
+        if (notas[i] >= 6) {
+          quantidade++
+        }
+      }
+      return quantidade
+    }
+
+
+    function calcAbaixoMedia() {
+
+      let soma = somaAbaixoMedia()
+      let quantidade = qtdAbaixoMedia()
+      let media = 0
+      if (soma != 0 && quantidade != 0) {
+        media = soma / quantidade
+      }
+      saida.innerHTML = media
+
+    }
+
+    function somaAbaixoMedia() {
+      let soma = 0
+
+      for (i = 0; i < notas.length; i++) {
+
+        if (notas[i] < 6) {
+          soma = soma + notas[i]
+
+        }
+
+      }
+
+      return soma
+    }
+
+    function qtdAbaixoMedia() {
+
+      let quantidade = 0
+
+      for (i = 0; i < notas.length; i++) {
+
+        if (notas[i] < 6) {
+          quantidade++
+        }
+      }
+      return quantidade
     }
 
     function exibirPrimos() {
@@ -104,6 +219,43 @@
 
       saida.innerHTML = mensagem
     }
+
+    function mediaImpares() {
+      let somaImpar = somaImpares()
+      let qtdImpar = qtdImpares()
+      let media = somaImpar / qtdImpar
+
+      saida.innerHTML = media
+
+
+    }
+    function qtdImpares() {
+
+      let impares = 0
+      for (i = 0; i < notas.length; i++) {
+        // == false também
+        if (!ehPar(notas[i])) {
+          impares = impares + 1
+        }
+      }
+      return impares
+    }
+
+    function somaImpares() {
+
+      let soma = 0
+
+      for (i = 0; i < notas.length; i++) {
+        if (!ehPar(notas[i])) {
+          soma = soma + notas[i]
+        }
+      }
+
+      return soma
+    }
+
+
+
     function exibirPares() {
 
       //exibir os dados do array
@@ -119,6 +271,49 @@
 
       saida.innerHTML = mensagem
 
+    }
+
+    function somaPares() {
+
+      let soma = 0
+
+      for (i = 0; i < notas.length; i = i + 1) {
+
+        if (ehPar(notas[i])) {
+
+          soma = soma + notas[i]
+        }
+
+      }
+      return soma
+
+    }
+
+    function qtdPares() {
+
+      let pares = 0
+
+      for (i = 0; i < notas.length; i++) {
+
+        if (ehPar(notas[i])) {
+
+          pares = pares + 1
+
+        }
+      }
+      return pares
+
+
+    }
+
+    function mediaPares() {
+
+      let somaPar = somaPares()
+      let qtdPar = qtdPares()
+      let media = somaPar / qtdPar
+
+
+      saida.innerHTML = media
     }
 
     function encontrarOMaior() {
@@ -165,8 +360,6 @@
       saida.innerHTML = menor
     }
 
-
-
     function exibirArray() {
 
       //exibir os dados do array
@@ -205,6 +398,12 @@
   <button onclick="exibirMedia()"> Exibir Media </button>
   <button onclick="exibirOMaior()"> Exibir Maior </button>
   <button onclick="exibirOMenor ()"> Exibir Menos </button>
+  <button onclick="mediaPares()"> Media Pares </button>
+  <button onclick="mediaImpares()"> Media Impares </button>
+  <button onclick="mediaPrimo()"> Media Primos </button>
+  <button onclick="calcAcimaMedia()"> Media Acima </button>
+  <button onclick="calcAbaixoMedia()"> Media abaixo </button>
+
   <div id="saida"></div>
 
 </body>
