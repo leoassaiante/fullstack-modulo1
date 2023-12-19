@@ -1,136 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-
-  <style>
-    .texto-riscado {
-      text-decoration: line-through;
-    }
-  </style>
-  <script>
-
-    const tarefas = []
-
-    let edicao = false
-
-    let posicaoEdicao = 0
-
-    function adicionarTarefa() {
-
-      // busca a descrição digitada pelo usuário
-      let descricao = document.getElementById("descricao").value;
-
-      //
-      if (edicao == true) {
-        //acessar tarefas[i] e alterar sua descricao
-        tarefas[posicaoEdicao].descricao = descricao
-
-
-      } else {
-        // monta o objeto tarefa contendo os atributos: descricao, concluida
-        let tarefa = { descricao, concluida: false };
-
-        // adiciona o objeto tarefa no vetor tarefas
-        tarefas.push(tarefa);
-
+    <style>
+      .texto-riscado {
+        text-decoration: line-through;
       }
+    </style>
+    <script>
+      const tarefas = [];
 
-      // voltando edicao para o valor "natural"
-      edicao = false
+      let tarefasCopia = [];
 
-      // limpando o input
-      document.getElementById("descricao").value = ""
+      let edicao = false;
 
-      // busca o elemento lista (div com id lista no HTML)
-      let lista = document.getElementById("lista")
+      let posicaoEdicao = 0;
 
-      // invocando funcao
-      listarTarefas()
+      function adicionarTarefa() {
+        // busca a descrição digitada pelo usuário
+        let descricao = document.getElementById("descricao").value;
 
-      // próximo encontro: quando o checkbox for marcado, o atributo concluida da tarefa, deve ser marcado como true
-
-    }
-    function checkTarefa(i) {
-      // acessar o elemento na posição i do vetor tarefas
-      tarefas[i].concluida = !tarefas[i].concluida
-
-      // buscar elementos span do texto da tarefa checado
-
-      let texto = document.getElementById("texto" + i)
-      // adicionar a classe CSS texto-riscado do elemento
-
-      // aplicar classe "texto-riscado" se tarefa esta concluída, se não remove classe texto riscado
-      if (tarefas[i].concluida == true) {
-
-        texto.classList.add("texto-riscado")
-      } else {
-        texto.classList.remove("texto-riscado")
-      }
-    }
-
-
-    function removerTarefa(i) {
-      // apartir da posição i remove um elemento
-      tarefas.splice(i, 1)
-
-      listarTarefas()
-
-    }
-
-    function listarTarefas() {
-      // "limpa" o conteúdo do HTML já existente previamente na div da lista
-      lista.innerHTML = ""
-      // percorre o vetor de tarefas para realizar a impressão das tarefas no HTML (div lista) // recriando lista
-      for (i = 0; i < tarefas.length; i++) {
-        if (tarefas[i].concluida == true) {
-
-          lista.innerHTML += '<span class="texto-riscado" id="texto' + i + '">' + tarefas[i].descricao + '</span> <input onclick="checkTarefa(' + i + ')" type="checkbox" id="' + i + '" checked /> <button onclick="editarTarefa(' + i + ')"> editar </button><button onclick="removerTarefa(' + i + ')"> remover </button><br>'
-
+        //
+        if (edicao == true) {
+          //acessar tarefas[i] e alterar sua descricao
+          tarefas[posicaoEdicao].descricao = descricao;
         } else {
+          // monta o objeto tarefa contendo os atributos: descricao, concluida
+          let tarefa = { descricao, concluida: false, id: tarefas.length };
 
-          lista.innerHTML += '<span id="texto' + i + '">' + tarefas[i].descricao + '</span> <input onclick="checkTarefa(' + i + ')" type="checkbox" id="' + i + '"/> <button onclick="editarTarefa(' + i + ')"> editar </button><button onclick="removerTarefa(' + i + ')"> remover </button><br>'
-
+          // adiciona o objeto tarefa no vetor tarefas
+          tarefas.push(tarefa);
+          tarefasCopia = tarefas;
         }
 
+        // voltando edicao para o valor "natural"
+        edicao = false;
+
+        // limpando o input
+        document.getElementById("descricao").value = "";
+
+        // busca o elemento lista (div com id lista no HTML)
+        let lista = document.getElementById("lista");
+
+        // invocando funcao
+        listarTarefas();
+
+        // próximo encontro: quando o checkbox for marcado, o atributo concluida da tarefa, deve ser marcado como true
+      }
+      function checkTarefa(i) {
+        // acessar o elemento na posição i do vetor tarefas
+        tarefas[i].concluida = !tarefas[i].concluida;
+
+        // buscar elementos span do texto da tarefa checado
+
+        let texto = document.getElementById("texto" + i);
+        // adicionar a classe CSS texto-riscado do elemento
+
+        // aplicar classe "texto-riscado" se tarefa esta concluída, se não remove classe texto riscado
+        if (tarefas[i].concluida == true) {
+          texto.classList.add("texto-riscado");
+        } else {
+          texto.classList.remove("texto-riscado");
+        }
       }
 
-    }
+      function removerTarefa(id) {
+        // buscar a tarefa com id igual ao parametro "buscar a tarefa de id x no vetor original (tarefas)"
+        // descobre o indice da tarefa a ser removida "descobre o (i)"
 
-    function editarTarefa(i) {
-      // acessando a descricao da tarefa editada
-      let descricao = tarefas[i].descricao
+        // apartir da posição i remove um elemento
+        tarefas.splice(i, 1);
 
-      //atribuir descricao no input de cadastro
-      document.getElementById("descricao").value = descricao
+        listarTarefas();
+      }
 
-      edicao = true
+      function listarTarefas() {
+        // "limpa" o conteúdo do HTML já existente previamente na div da lista
+        lista.innerHTML = "";
+        // percorre o vetor de tarefas para realizar a impressão das tarefas no HTML (div lista) // recriando lista
+        for (i = 0; i < tarefasCopia.length; i++) {
+          if (tarefasCopia[i].concluida == true) {
+            lista.innerHTML +=
+              '<span class="texto-riscado" id="texto' +
+              i +
+              '">' +
+              tarefasCopia[i].descricao +
+              '</span> <input onclick="checkTarefa(' +
+              i +
+              ')" type="checkbox" id="' +
+              i +
+              '" checked /> <button onclick="editarTarefa(' +
+              i +
+              ')"> editar </button><button onclick="removerTarefa(' +
+              i +
+              ')"> remover </button><br>';
+          } else {
+            lista.innerHTML +=
+              '<span id="texto' +
+              i +
+              '">' +
+              tarefasCopia[i].descricao +
+              '</span> <input onclick="checkTarefa(' +
+              i +
+              ')" type="checkbox" id="' +
+              i +
+              '"/> <button onclick="editarTarefa(' +
+              i +
+              ')"> editar </button><button onclick="removerTarefa(' +
+              i +
+              ')"> remover </button><br>';
+          }
+        }
+      }
 
-      posicaoEdicao = i
+      function editarTarefa(i) {
+        // acessando a descricao da tarefa editada
+        let descricao = tarefasCopia[i].descricao;
 
+        //atribuir descricao no input de cadastro
+        document.getElementById("descricao").value = descricao;
 
+        edicao = true;
 
-    }
-  </script>
-</head>
+        posicaoEdicao = i;
+      }
 
-<body>
-  <input placeholder="Descriçao" id="descricao" type="text" />
+      function aplicarFiltro() {
+        // acessar opcao da selecao do filtro (pegar value do select escolhida pelo "usuario")
+        let opcaoSelecionada = document.getElementById("select").value;
 
-  <button onclick="adicionarTarefa()"> Salvar </button>
+        // aplicar filter
+        switch (opcaoSelecionada) {
+          case "todos":
+            tarefasCopia = tarefas;
+            break;
+          case "abertos":
+            tarefasCopia = tarefas.filter(function (tarefa) {
+              return tarefa.concluida == false;
+            });
+            break;
+          case "concluidas":
+            tarefasCopia = tarefas.filter(function (tarefa) {
+              return tarefa.concluida == true;
+            });
+            break;
+          default:
+            console.log("escolheu opcao invalida");
+            break;
+        }
 
-  <select id="select">
-    <option value="concluidas"> Concluidas</option>
-    <option value="abertos"> Abertos</option>
-    <option value="todos"> Todos</option>
-  </select>
+        listarTarefas();
+      }
+    </script>
+  </head>
 
-  <button> Filtrar </button>
+  <body>
+    <input placeholder="Descriçao" id="descricao" type="text" />
 
-  <div id="lista"> </div>
-</body>
+    <button onclick="adicionarTarefa()">Salvar</button>
 
+    <select id="select">
+      <option value="concluidas">Concluidas</option>
+      <option value="abertos">Abertos</option>
+      <option value="todos">Todos</option>
+    </select>
+
+    <button onclick="aplicarFiltro()">Filtrar</button>
+
+    <div id="lista"></div>
+  </body>
 </html>
