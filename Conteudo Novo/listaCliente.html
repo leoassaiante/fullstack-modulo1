@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // criacao de vetor
+    let clientes = []
+
+    function adicionarCliente() {
+
+      //lendo nome e email digitado
+      let nome = document.getElementById("nome").value
+      let email = document.getElementById("email").value
+
+      // criando objeto cliente
+      let cliente = { nome: nome, email: email }
+
+      //adicionar cliente no vetor
+      clientes.push(cliente)
+
+      //acessando elemento div lista
+      let divLista = document.getElementById("lista")
+
+      //limpando lista de clientes do html
+      divLista.innerHTML = ""
+
+
+      // criacao para percorrer o vetor
+      for (i = 0; i < clientes.length; i++) {
+
+        divLista.innerHTML += clientes[i].nome + ", " + clientes[i].email + "<br>"
+
+      }
+
+
+    }
+
+
+
+  </script>
+</head>
+
+<body>
+
+  <input placeholder="Nome" id="nome" type="text" />
+  <input placeholder="Email" id="email" type="text" />
+
+  <button onclick="adicionarCliente()"> Adicionar </button>
+  <div id="lista"></div>
+
+</body>
+
+</html>

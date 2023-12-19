@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    const aulas = [];
+
+    function adicionarNovaAula() {
+      //ler os campos da tela
+      let descricao = document.getElementById("descricao").value;
+      let data = document.getElementById("data").value;
+      let horaInicio = document.getElementById("horaInicio").value;
+      let horaFim = document.getElementById("horaFim").value;
+
+      //colocar dentro de um objeto
+
+      let aula = { descricao, data, horaInicio, horaFim };
+      //adicionar no array
+      aulas.push(aula);
+    }
+
+    function listarAulas() {
+      //ler todas as aulas do array
+      // monstar um HTML de saida para os itens do array
+    }
+  </script>
+
+  <style>
+    #conteiner {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #lista {
+      background-color: gray;
+      padding: 10px;
+
+    }
+
+    #titulos {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="conteiner">
+    <div id="form">
+
+      <input placeholder="Descrição" id="descricao" type="text" />
+      <input place holder="Data" id="data" type="date" />
+      <input placeholder="Hora Inicio" id="horaInicio" type="time" />
+      <input placeholder="Hora Fim" id="horaFim" type="time" />
+
+      <button onclick="adicionarNovaAula()">Salvar</button>
+    </div>
+
+    <div id="lista">
+      <div id="titulos">
+
+        <div> Descrição</div>
+        <div> Data</div>
+        <div> Hora Inicio</div>
+        <div> Hora Fim</div>
+
+      </div>
+
+    </div>
+
+
+</body>
+
+</html>
