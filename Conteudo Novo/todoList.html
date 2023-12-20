@@ -50,34 +50,35 @@
 
         // próximo encontro: quando o checkbox for marcado, o atributo concluida da tarefa, deve ser marcado como true
       }
-      function checkTarefa(i) {
+      function checkTarefa(id) {
+        let i = tarefas.findIndex(function (tarefa) {
+          return tarefa.id == id;
+        });
         // acessar o elemento na posição i do vetor tarefas
         tarefas[i].concluida = !tarefas[i].concluida;
 
         // buscar elementos span do texto da tarefa checado
 
-        let texto = document.getElementById("texto" + i);
-        // adicionar a classe CSS texto-riscado do elemento
-
-        // aplicar classe "texto-riscado" se tarefa esta concluída, se não remove classe texto riscado
-        if (tarefas[i].concluida == true) {
-          texto.classList.add("texto-riscado");
-        } else {
-          texto.classList.remove("texto-riscado");
-        }
+        listarTarefas();
       }
 
       function removerTarefa(id) {
         // buscar a tarefa com id igual ao parametro "buscar a tarefa de id x no vetor original (tarefas)"
         // descobre o indice da tarefa a ser removida "descobre o (i)"
+        let i = tarefas.findIndex(function (tarefa) {
+          return tarefa.id == id;
+        });
 
         // apartir da posição i remove um elemento
         tarefas.splice(i, 1);
-
+        // atualizar vetor tarefasCopia
+        tarefasCopia = tarefas;
         listarTarefas();
       }
 
       function listarTarefas() {
+        // aplicar filtro antes de atualizar listagem
+        aplicarFiltro();
         // "limpa" o conteúdo do HTML já existente previamente na div da lista
         lista.innerHTML = "";
         // percorre o vetor de tarefas para realizar a impressão das tarefas no HTML (div lista) // recriando lista
@@ -89,13 +90,13 @@
               '">' +
               tarefasCopia[i].descricao +
               '</span> <input onclick="checkTarefa(' +
-              i +
+              tarefasCopia[i].id +
               ')" type="checkbox" id="' +
               i +
               '" checked /> <button onclick="editarTarefa(' +
               i +
               ')"> editar </button><button onclick="removerTarefa(' +
-              i +
+              tarefasCopia[i].id +
               ')"> remover </button><br>';
           } else {
             lista.innerHTML +=
@@ -104,13 +105,13 @@
               '">' +
               tarefasCopia[i].descricao +
               '</span> <input onclick="checkTarefa(' +
-              i +
+              tarefasCopia[i].id +
               ')" type="checkbox" id="' +
               i +
               '"/> <button onclick="editarTarefa(' +
               i +
               ')"> editar </button><button onclick="removerTarefa(' +
-              i +
+              tarefasCopia[i].id +
               ')"> remover </button><br>';
           }
         }
@@ -151,8 +152,6 @@
             console.log("escolheu opcao invalida");
             break;
         }
-
-        listarTarefas();
       }
     </script>
   </head>
@@ -165,10 +164,10 @@
     <select id="select">
       <option value="concluidas">Concluidas</option>
       <option value="abertos">Abertos</option>
-      <option value="todos">Todos</option>
+      <option value="todos" selected>Todos</option>
     </select>
 
-    <button onclick="aplicarFiltro()">Filtrar</button>
+    <button onclick="listarTarefas()">Filtrar</button>
 
     <div id="lista"></div>
   </body>
