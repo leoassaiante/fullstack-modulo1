@@ -17,7 +17,7 @@
 
       let edicao = false;
 
-      let posicaoEdicao = 0;
+      let idEdicao = 0;
 
       function adicionarTarefa() {
         // busca a descrição digitada pelo usuário
@@ -26,7 +26,10 @@
         //
         if (edicao == true) {
           //acessar tarefas[i] e alterar sua descricao
-          tarefas[posicaoEdicao].descricao = descricao;
+          let i = tarefas.findIndex(function (tarefa) {
+            return tarefa.id == idEdicao;
+          });
+          tarefas[i].descricao = descricao;
         } else {
           // monta o objeto tarefa contendo os atributos: descricao, concluida
           let tarefa = { descricao, concluida: false, id: tarefas.length };
@@ -126,7 +129,7 @@
 
         edicao = true;
 
-        posicaoEdicao = i;
+        idEdicao = tarefasCopia[i].id;
       }
 
       function aplicarFiltro() {

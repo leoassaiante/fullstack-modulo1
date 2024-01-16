@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //criar variavel para o vetor de carros
+      // criar funcao salvar
+      //  acessar campos pelo document.getelement.byid para cada campo e pegar o valor (value) do campo
+      //   criar um novo objeto "carro" com os valores coletados
+      //    adicionar um novo objeto no vetor
+      //     limpar os campos
+
+      let carros = [];
+      let idAtual = 0;
+
+      function adicionarCarro() {
+        let modelo = document.getElementById("modelo").value;
+        let cor = document.getElementById("cor").value;
+        let ano = document.getElementById("ano").value;
+        let placa = document.getElementById("placa").value;
+
+        let carro = {
+          id: idAtual++,
+          modelo: modelo,
+          cor: cor,
+          ano: ano,
+          placa: placa,
+          vendido: false,
+        };
+
+        carros.push(carro);
+
+        document.getElementById("modelo").value = "";
+        document.getElementById("cor").value = "";
+        document.getElementById("ano").value = "";
+        document.getElementById("placa").value = "";
+
+        listarCarros();
+      }
+
+      // 1 criar função listar
+      // 1.1 limpando o Corpo da Tabela <Tbody>
+      // 2 buscar elemento tbody
+      // 3 criar um tr dentro do tbody
+      // 4 ao salvar um carro chamar a função listas
+
+      function listarCarros() {
+        let corpoTabela = document.getElementById("corpoTabela");
+
+        corpoTabela.innerHTML = "";
+
+        for (i = 0; i < carros.length; i++) {
+          corpoTabela.innerHTML += `
+          <tr>
+            <td>${carros[i].modelo}</td>
+            <td>${carros[i].cor}</td>
+            <td>${carros[i].ano}</td>
+            <td>${carros[i].placa}</td>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>
+              <button>Editar</button>
+              <button>Remover</button>
+            </td>
+          </tr>
+          `;
+        }
+      }
+
+      // 1 criar função checkVendido que recebera como parametro o id do carro
+      // 2 buscar o indice no vetor do carro que possui o id  fornecido no parametro
+      // 3 colocar vendido = true para o carro na posição do indice descoberto
+      function checkVendido(id) {
+        let i = carros.findIndex();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sistema de Vendas de Carros</h1>
+
+    <input placeholder="Modelo" id="modelo" type="text" />
+    <input placeholder="Cor" id="cor" type="text" />
+    <input placeholder="Ano" id="ano" type="number" />
+    <input placeholder="Placa" id="placa" type="text" />
+
+    <button onclick="adicionarCarro()">Salvar</button>
+
+    <table border="1">
+      <!-- cabeçalho -->
+      <thead>
+        <th>Modelo</th>
+        <th>Cor</th>
+        <th>Ano</th>
+        <th>Placa</th>
+        <th>Vendido</th>
+        <th>Ações</th>
+      </thead>
+      <!-- corpo da tabela -->
+      <tbody id="corpoTabela"></tbody>
+    </table>
+  </body>
+</html>
