@@ -54,16 +54,17 @@
         for (i = 0; i < carros.length; i++) {
           corpoTabela.innerHTML += `
           <tr>
+            <td>${carros[i].id}</td>
             <td>${carros[i].modelo}</td>
             <td>${carros[i].cor}</td>
             <td>${carros[i].ano}</td>
             <td>${carros[i].placa}</td>
             <td>
-              <input type="checkbox" name="" id="" />
+              <input onclick="checkVendido(${carros[i].id})" type="checkbox" name="" id="" />
             </td>
             <td>
               <button>Editar</button>
-              <button>Remover</button>
+              <button onclick="removerCarro(${carros[i].id})">Remover</button>
             </td>
           </tr>
           `;
@@ -74,8 +75,31 @@
       // 2 buscar o indice no vetor do carro que possui o id  fornecido no parametro
       // 3 colocar vendido = true para o carro na posição do indice descoberto
       function checkVendido(id) {
-        let i = carros.findIndex();
+        let i = carros.findIndex(function (carro) {
+          return carro.id == id;
+        });
+        carros[i].vendido = !carros[i].vendido;
       }
+
+      // 1. Criar funcao remover carro que recebe como parametro o id do carro
+      // 2. Buscar o indice do vetor do carro que pussue o id = do parametro (utilizar metodo findIndex no vetor carros)
+      // 3. Remover o elemento do vetor carros do indice descoberto (utilizar metodo splice no vetor carros)
+      // 4. Relistar tabela de carros
+
+      function removerCarro(id) {
+        let i = carros.findIndex(function (carro) {
+          return carro.id == id;
+        });
+
+        carros.splice(i, 1);
+
+        listarCarros();
+      }
+
+      // 1. Criar funcao editar carro que recebe como parametro o id do carro
+      // 2. Armazenar o id recebido como parametro em uma variavel global chamada "idEdicao"
+      // 3. Atribuir true na variavel global chamada "modoEdicao"
+      // 4. Alterar funcao adicionarCarro para alterar carro já existente (no vetor carros) quando o modo edicao for igual a true
     </script>
   </head>
   <body>
@@ -91,6 +115,7 @@
     <table border="1">
       <!-- cabeçalho -->
       <thead>
+        <th>Id</th>
         <th>Modelo</th>
         <th>Cor</th>
         <th>Ano</th>
