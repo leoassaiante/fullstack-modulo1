@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      //criar variavel para o vetor de carros
+      //criar variavel para o vetor de vetorCarros
       // criar funcao salvar
       //  acessar campos pelo document.getelement.byid para cada campo e pegar o valor (value) do campo
       //   criar um novo objeto "carro" com os valores coletados
       //    adicionar um novo objeto no vetor
       //     limpar os campos
 
-      let carros = [];
+      let vetorCarros = [];
       let idAtual = 0;
+      let idEdicao = 0;
+      let modoEdicao = false;
 
       function adicionarCarro() {
         let modelo = document.getElementById("modelo").value;
@@ -22,7 +24,6 @@
         let placa = document.getElementById("placa").value;
 
         let carro = {
-          id: idAtual++,
           modelo: modelo,
           cor: cor,
           ano: ano,
@@ -30,7 +31,24 @@
           vendido: false,
         };
 
-        carros.push(carro);
+        if (modoEdicao == true) {
+          // salvar a edicao
+          // 1. buscar o indice do carro a ser salvo utilizando o id edicao (findIndex) armazenar o indice em uma variavel local (let i)
+          // 2. com o indice encontrado no passo anterior atribuir o objeto carro na posicao encontrada do vetor carros (vetorCarros[i] = carro)
+          // 3. atribuir false na variavel global modoEdicao (modoEdicao = false)
+
+          let i = vetorCarros.findIndex(function (carroDaVez) {
+            return carroDaVez.id == idEdicao;
+          });
+          carro.id = idEdicao;
+          vetorCarros[i] = carro;
+
+          modoEdicao = false;
+        } else {
+          // adicionar carro novo
+          carro.id = idAtual++;
+          vetorCarros.push(carro);
+        }
 
         document.getElementById("modelo").value = "";
         document.getElementById("cor").value = "";
@@ -51,20 +69,20 @@
 
         corpoTabela.innerHTML = "";
 
-        for (i = 0; i < carros.length; i++) {
+        for (i = 0; i < vetorCarros.length; i++) {
           corpoTabela.innerHTML += `
           <tr>
-            <td>${carros[i].id}</td>
-            <td>${carros[i].modelo}</td>
-            <td>${carros[i].cor}</td>
-            <td>${carros[i].ano}</td>
-            <td>${carros[i].placa}</td>
+            <td>${vetorCarros[i].id}</td>
+            <td>${vetorCarros[i].modelo}</td>
+            <td>${vetorCarros[i].cor}</td>
+            <td>${vetorCarros[i].ano}</td>
+            <td>${vetorCarros[i].placa}</td>
             <td>
-              <input onclick="checkVendido(${carros[i].id})" type="checkbox" name="" id="" />
+              <input onclick="checkVendido(${vetorCarros[i].id})" type="checkbox" name="" id="" />
             </td>
             <td>
-              <button>Editar</button>
-              <button onclick="removerCarro(${carros[i].id})">Remover</button>
+              <button onclick="editarCarro(${vetorCarros[i].id})">Editar</button>
+              <button onclick="removerCarro(${vetorCarros[i].id})">Remover</button>
             </td>
           </tr>
           `;
@@ -75,23 +93,23 @@
       // 2 buscar o indice no vetor do carro que possui o id  fornecido no parametro
       // 3 colocar vendido = true para o carro na posição do indice descoberto
       function checkVendido(id) {
-        let i = carros.findIndex(function (carro) {
+        let i = vetorCarros.findIndex(function (carro) {
           return carro.id == id;
         });
-        carros[i].vendido = !carros[i].vendido;
+        vetorCarros[i].vendido = !vetorCarros[i].vendido;
       }
 
       // 1. Criar funcao remover carro que recebe como parametro o id do carro
-      // 2. Buscar o indice do vetor do carro que pussue o id = do parametro (utilizar metodo findIndex no vetor carros)
-      // 3. Remover o elemento do vetor carros do indice descoberto (utilizar metodo splice no vetor carros)
-      // 4. Relistar tabela de carros
+      // 2. Buscar o indice do vetor do carro que pussue o id = do parametro (utilizar metodo findIndex no vetor vetorCarros)
+      // 3. Remover o elemento do vetor vetorCarros do indice descoberto (utilizar metodo splice no vetor vetorCarros)
+      // 4. Relistar tabela de vetorCarros
 
       function removerCarro(id) {
-        let i = carros.findIndex(function (carro) {
+        let i = vetorCarros.findIndex(function (carro) {
           return carro.id == id;
         });
 
-        carros.splice(i, 1);
+        vetorCarros.splice(i, 1);
 
         listarCarros();
       }
@@ -99,7 +117,23 @@
       // 1. Criar funcao editar carro que recebe como parametro o id do carro
       // 2. Armazenar o id recebido como parametro em uma variavel global chamada "idEdicao"
       // 3. Atribuir true na variavel global chamada "modoEdicao"
-      // 4. Alterar funcao adicionarCarro para alterar carro já existente (no vetor carros) quando o modo edicao for igual a true
+      // 4. Buscar carro a ser editado no vetor vetorCarros utilizando o id recebido como parametro (find)
+      // 5. buscar input com getElementById e atribuir o value = ao atributo do carro edicao Ex: document.getElementById("modelo").value = carroEdicao.modelo
+      // 6. Alterar funcao adicionarCarro para alterar carro já existente (no vetor vetorCarros) quando o modo edicao for igual a true
+
+      function editarCarro(id) {
+        modoEdicao = true;
+        let carroEdicao = vetorCarros.find(function (carro) {
+          return carro.id == id;
+        });
+
+        idEdicao = carroEdicao.id;
+
+        document.getElementById("modelo").value = carroEdicao.modelo;
+        document.getElementById("cor").value = carroEdicao.cor;
+        document.getElementById("ano").value = carroEdicao.ano;
+        document.getElementById("placa").value = carroEdicao.placa;
+      }
     </script>
   </head>
   <body>
