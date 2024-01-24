@@ -139,14 +139,16 @@
         // aplicar filter
         switch (opcaoSelecionada) {
           case "todos":
-            tarefasCopia = tarefas;
+            tarefasCopia = tarefas; // shallow copy
             break;
           case "abertos":
+            // deep copy
             tarefasCopia = tarefas.filter(function (tarefa) {
               return tarefa.concluida == false;
             });
             break;
           case "concluidas":
+            // deep copy
             tarefasCopia = tarefas.filter(function (tarefa) {
               return tarefa.concluida == true;
             });
