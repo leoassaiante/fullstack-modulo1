@@ -9,6 +9,15 @@
       * {
         font-family: sans-serif;
       }
+
+      body {
+        background-color: rgb(136, 142, 114);
+        background-image: url(https://www-cdn.bigcommerce.com/assets/_1200x630_crop_center-center_82_none/Article_Thumbnail_Ecommerce_Website.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
       table {
         width: 100%;
         border-collapse: collapse;
@@ -67,6 +76,11 @@
         justify-content: space-between;
         align-items: center;
       }
+
+      .imagem-carro {
+        width: 150px;
+        height: 112.5px;
+      }
     </style>
 
     <script>
@@ -88,12 +102,14 @@
         let cor = document.getElementById("cor").value;
         let ano = document.getElementById("ano").value;
         let placa = document.getElementById("placa").value;
+        let imagem = document.getElementById("imagem").value;
 
         let carro = {
           modelo: modelo,
           cor: cor,
           ano: ano,
           placa: placa,
+          imagem: imagem,
           vendido: false,
         };
 
@@ -120,6 +136,7 @@
         document.getElementById("cor").value = "";
         document.getElementById("ano").value = "";
         document.getElementById("placa").value = "";
+        document.getElementById("imagem").value = "";
 
         listarCarros();
       }
@@ -141,6 +158,10 @@
         for (i = 0; i < vetorCarrosCopia.length; i++) {
           corpoTabela.innerHTML += `
           <tr>
+            <td>
+              <img class="imagem-carro" src="${vetorCarrosCopia[i].imagem}">
+             
+            </td>
             <td>${vetorCarrosCopia[i].id}</td>
             <td>${vetorCarrosCopia[i].modelo}</td>
             <td>${vetorCarrosCopia[i].cor}</td>
@@ -236,6 +257,7 @@
         document.getElementById("cor").value = carroEdicao.cor;
         document.getElementById("ano").value = carroEdicao.ano;
         document.getElementById("placa").value = carroEdicao.placa;
+        document.getElementById("imagem").value = carroEdicao.imagem;
       }
     </script>
   </head>
@@ -255,6 +277,7 @@
         <input placeholder="Cor" id="cor" type="text" />
         <input placeholder="Ano" id="ano" type="number" />
         <input placeholder="Placa" id="placa" type="text" />
+        <input placeholder="Link da Imagem" id="imagem" type="text" />
       </div>
 
       <button type="button" onclick="adicionarCarro()">Salvar</button>
@@ -263,6 +286,7 @@
     <table>
       <!-- cabeçalho -->
       <thead>
+        <th>Imagem</th>
         <th>Id</th>
         <th>Modelo</th>
         <th>Cor</th>
